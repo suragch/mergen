@@ -1,0 +1,24 @@
+name: mergen
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  equatable: ^1.2.0
+  flutter_hooks: ^0.14.0
+  get_it: ^5.0.1
+  hooks_riverpod: ^0.11.1
+  meta: ^1.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: null
+
+flutter:
+  uses-material-design: true
