@@ -1,5 +1,6 @@
 import 'package:mergen/domain/auth/email_address.dart';
 import 'package:mergen/domain/auth/password.dart';
+import 'package:mergen/domain/dictionary/english_word.dart';
 import 'package:mergen/domain/search/search_string.dart';
 import 'package:test/test.dart';
 
@@ -29,5 +30,11 @@ void main() {
         throwsA(TypeMatcher<InvalidSearchStringException>()));
     expect(() => SearchString(' '),
         throwsA(TypeMatcher<InvalidSearchStringException>()));
+  });
+
+  test('English dictionary entries must have an English word and Cyrillic gloss', () {
+    final entry = EnglishWord('book', glossCyrillic: 'ном');
+    expect(entry.word, isNotNull);
+    expect(entry.glossCyrillic, isNotNull);
   });
 }
