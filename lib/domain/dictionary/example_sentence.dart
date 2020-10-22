@@ -8,7 +8,7 @@ class ExampleSentence extends Equatable {
   ExampleSentence(
     this.sentence, {
     this.source,
-    this.pronunciation,
+    this.pronunciations,
   });
 
   /// A sentence to show how a word or phrase is used in context.
@@ -31,8 +31,8 @@ class ExampleSentence extends Equatable {
   final String source;
 
   /// The pronunciation(s) of [sentence];
-  final List<Pronunciation> pronunciation;
+  final List<Pronunciation> pronunciations;
 
   @override
-  List<Object> get props => [sentence, source, pronunciation];
+  List<Object> get props => [sentence, source, pronunciations];
 }

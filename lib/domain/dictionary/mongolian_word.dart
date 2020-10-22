@@ -6,12 +6,13 @@ import 'package:meta/meta.dart';
 import 'example_sentence.dart';
 import 'part_of_speech.dart';
 import 'pronunciation.dart';
+import 'word.dart';
 
 /// This is a Mongolian dictionary entry.
 ///
 /// The [word] can also be a phrase.
 @immutable
-class MongolianWord extends Equatable {
+class MongolianWord extends Equatable implements Word {
   MongolianWord(
     this.word, {
     this.bichig,
@@ -66,8 +67,8 @@ class MongolianWord extends Equatable {
   /// 'авах'. Or if [word] is 'хүмүүс' then [baseForm] should be 'хүн'.
   final String baseForm;
 
-  /// The written and spoken pronunciation(s) of [word]. 
-  /// 
+  /// The written and spoken pronunciation(s) of [word].
+  ///
   /// You can add a pronunciation for [khalkhaMongolian] and [innerMongolian].
   final List<Pronunciation> pronunciation;
 

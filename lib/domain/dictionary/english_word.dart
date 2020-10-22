@@ -6,17 +6,18 @@ import 'package:meta/meta.dart';
 import 'example_sentence.dart';
 import 'part_of_speech.dart';
 import 'pronunciation.dart';
+import 'word.dart';
 
 /// This is an English-to-Mongolian dictionary entry.
 ///
 /// The [word] can also be a phrase.
 @immutable
-class EnglishWord extends Equatable {
+class EnglishWord extends Equatable implements Word {
   EnglishWord(
     this.word, {
     this.baseForm,
     this.locale = americanEnglish,
-    this.pronunciation,
+    this.pronunciations,
     this.partOfSpeach,
     @required this.glossCyrillic,
     this.glossMongol,
@@ -57,7 +58,7 @@ class EnglishWord extends Equatable {
   /// of [word].
   /// 
   /// You can add a pronunciation for [americanEnglish] and [britishEnglish].
-  final List<Pronunciation> pronunciation;
+  final List<Pronunciation> pronunciations;
 
   /// The part of speach for [word], whether verb, noun, etc.
   final EnglishPartOfSpeech partOfSpeach;
@@ -100,7 +101,7 @@ class EnglishWord extends Equatable {
         word,
         baseForm,
         locale,
-        pronunciation,
+        pronunciations,
         partOfSpeach,
         glossCyrillic,
         glossMongol,
