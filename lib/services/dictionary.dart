@@ -23,43 +23,72 @@ class FakeDictionary implements DictionaryService {
 
   @override
   Future<List<EnglishWord>> definitionOf(SearchString word) {
-    return Future.value([
-      EnglishWord(
-        'hours',
-        baseForm: 'hour',
-        pronunciations: [
-          Pronunciation(
-            locale: EnglishWord.americanEnglish,
-            ipa: 'aʊərz',
-            audio: Uri(path: 'hours.mp3'),
-          ),
-          Pronunciation(
-            locale: EnglishWord.britishEnglish,
-            ipa: 'aʊəz',
-            audio: Uri(path: 'hours.mp3'),
-          ),
-        ],
-        partOfSpeach: EnglishPartOfSpeech.noun,
-        glossCyrillic: 'цаг',
-        glossMongol: 'ᠴᠠᠭ',
-        descriptionCyrillic:
-            'Үргэлжид хөгжих материйн орших ахуйн бодит хэлбэр: цаг цагаараа байдаггүй цахилдаг хөхөөрөө дэлгэрэнгүй... [зүйр цэцэн үг] (юм үргэлж хувирч өөрчлөгдөж, хөгжиж байдаг гэсэн санаа);',
-        descriptionMongol:
-            'ᠦᠷᠭᠦᠯᠵᠢᠳᠡ ᠬᠦᠭᠵᠢᠬᠦ ᠮᠠᠲ᠋ᠧᠷᠢ ᠶᠢᠨ ᠣᠷᠣᠰᠢᠬᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠪᠣᠳᠠᠲᠤ ᠬᠡᠯᠪᠡᠷᠢ᠄ ᠴᠠᠭ ᠴᠠᠭ ᠢᠶᠠᠷ ᠢᠶᠠᠨ ᠪᠠᠶᠢᠳᠠᠭ ᠦᠭᠡᠢ ᠴᠠᠬᠢᠯᠳᠠᠭ ᠬᠥᠬᠡ ᠪᠡᠷ ᠢᠶᠡᠨ ᠳᠡᠯᠭᠡᠷᠡᠩᠭᠦᠢ..᠃ 〔ᠵᠦᠢᠷ ᠰᠡᠴᠡᠨ ᠦᠭᠡ〕 (ᠶᠤᠮ ᠦᠷᠭᠦᠯᠵᠢ ᠬᠤᠪᠢᠷᠠᠵᠤ ᠥᠭᠡᠷᠡᠴᠢᠯᠡᠭᠳᠡᠵᠦ᠂ ᠬᠥᠭᠵᠢᠵᠦ ᠪᠠᠶᠢᠳᠠᠭ ᠭᠡᠰᠡᠨ ᠰᠠᠨᠠᠭ᠎ᠠ);',
-        examples: [
-          ExampleSentence(
-            'There are 24 hours in a day.',
-            source: 'VocuCard',
-            pronunciations: [
-              Pronunciation(
-                audio: Uri(path: 'thereare24hours.mp3'),
-              ),
-            ],
-          )
-        ],
-        tags: ['time'],
-      )
-    ]);
+    return Future.value(
+      [
+        EnglishWord(
+          'hours',
+          baseForm: 'hour',
+          pronunciations: [
+            Pronunciation(
+              locale: EnglishWord.americanEnglish,
+              ipa: 'aʊərz',
+              audio: Uri(path: 'hours.mp3'),
+            ),
+            Pronunciation(
+              locale: EnglishWord.britishEnglish,
+              ipa: 'aʊəz',
+              audio: Uri(path: 'hours.mp3'),
+            ),
+          ],
+          partOfSpeach: EnglishPartOfSpeech.noun,
+          glossCyrillic: 'цаг',
+          glossMongol: 'ᠴᠠᠭ',
+          descriptionCyrillic:
+              'Үргэлжид хөгжих материйн орших ахуйн бодит хэлбэр: цаг цагаараа байдаггүй цахилдаг хөхөөрөө дэлгэрэнгүй... [зүйр цэцэн үг] (юм үргэлж хувирч өөрчлөгдөж, хөгжиж байдаг гэсэн санаа).',
+          descriptionMongol:
+              'ᠦᠷᠭᠦᠯᠵᠢᠳᠡ ᠬᠦᠭᠵᠢᠬᠦ ᠮᠠᠲ᠋ᠧᠷᠢ ᠶᠢᠨ ᠣᠷᠣᠰᠢᠬᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠪᠣᠳᠠᠲᠤ ᠬᠡᠯᠪᠡᠷᠢ᠄ ᠴᠠᠭ ᠴᠠᠭ ᠢᠶᠠᠷ ᠢᠶᠠᠨ ᠪᠠᠶᠢᠳᠠᠭ ᠦᠭᠡᠢ ᠴᠠᠬᠢᠯᠳᠠᠭ ᠬᠥᠬᠡ ᠪᠡᠷ ᠢᠶᠡᠨ ᠳᠡᠯᠭᠡᠷᠡᠩᠭᠦᠢ 〔ᠵᠦᠢᠷ ᠰᠡᠴᠡᠨ ᠦᠭᠡ〕 (ᠶᠤᠮ ᠦᠷᠭᠦᠯᠵᠢ ᠬᠤᠪᠢᠷᠠᠵᠤ ᠥᠭᠡᠷᠡᠴᠢᠯᠡᠭᠳᠡᠵᠦ᠂ ᠬᠥᠭᠵᠢᠵᠦ ᠪᠠᠶᠢᠳᠠᠭ ᠭᠡᠰᠡᠨ ᠰᠠᠨᠠᠭ᠎ᠠ)᠃',
+          examples: [
+            ExampleSentence(
+              'There are 24 hours in a day.',
+              source: 'VocuCard',
+              pronunciations: [
+                Pronunciation(
+                  audio: Uri(path: 'thereare24hours.mp3'),
+                ),
+              ],
+            ),
+            ExampleSentence(
+              'How many hours will the flight take?',
+              source: '',
+              pronunciations: [
+                Pronunciation(
+                  audio: Uri(path: 'howmanyhours.mp3'),
+                ),
+              ],
+            )
+          ],
+          tags: ['time'],
+        ),
+        EnglishWord(
+          'hours',
+          partOfSpeach: EnglishPartOfSpeech.noun,
+          glossCyrillic: 'цаг',
+          glossMongol: 'ᠠᠵᠢᠯ ᠤᠨ ᠴᠠᠭ',
+          descriptionCyrillic:
+              'Үргэлжид хөгжих материйн орших ахуйн бодит хэлбэр: цаг цагаараа байдаггүй цахилдаг хөхөөрөө дэлгэрэнгүй... [зүйр цэцэн үг] (юм үргэлж хувирч өөрчлөгдөж, хөгжиж байдаг гэсэн санаа).',
+          descriptionMongol:
+              'ᠦᠷᠭᠦᠯᠵᠢᠳᠡ ᠬᠦᠭᠵᠢᠬᠦ ᠮᠠᠲ᠋ᠧᠷᠢ ᠶᠢᠨ ᠣᠷᠣᠰᠢᠬᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠪᠣᠳᠠᠲᠤ ᠬᠡᠯᠪᠡᠷᠢ᠄ ᠴᠠᠭ ᠴᠠᠭ ᠢᠶᠠᠷ ᠢᠶᠠᠨ ᠪᠠᠶᠢᠳᠠᠭ ᠦᠭᠡᠢ ᠴᠠᠬᠢᠯᠳᠠᠭ ᠬᠥᠬᠡ ᠪᠡᠷ ᠢᠶᠡᠨ ᠳᠡᠯᠭᠡᠷᠡᠩᠭᠦᠢ 〔ᠵᠦᠢᠷ ᠰᠡᠴᠡᠨ ᠦᠭᠡ〕 (ᠶᠤᠮ ᠦᠷᠭᠦᠯᠵᠢ ᠬᠤᠪᠢᠷᠠᠵᠤ ᠥᠭᠡᠷᠡᠴᠢᠯᠡᠭᠳᠡᠵᠦ᠂ ᠬᠥᠭᠵᠢᠵᠦ ᠪᠠᠶᠢᠳᠠᠭ ᠭᠡᠰᠡᠨ ᠰᠠᠨᠠᠭ᠎ᠠ)᠃',
+          examples: [
+            ExampleSentence(
+              'My hours at work got cut.',
+            ),
+            ExampleSentence(
+              'I had to work long hours.',
+            )
+          ],
+        )
+      ],
+    );
   }
 }
 
