@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:mergen/domain/dictionary/english_word.dart';
 import 'package:mergen/domain/dictionary/example_sentence.dart';
 import 'package:mergen/domain/dictionary/part_of_speech.dart';
-import 'package:mergen/domain/search/search_string.dart';
 import 'package:mergen/services/dictionary.dart';
 import 'package:mergen/services/service_locator.dart';
 
@@ -14,8 +13,8 @@ class EnglishDefinitionsNotifier
   final dictionary = locator<DictionaryService>();
 
   Future<void> search(String word) async {
-    final validatedWord = SearchString(word);
-    final englishWord = await dictionary.definitionOf(validatedWord);
+    //final validatedWord = String(word);
+    final englishWord = await dictionary.definitionOf(word);
     value = _presentable(englishWord);
   }
 }

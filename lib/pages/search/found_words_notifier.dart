@@ -5,15 +5,18 @@ import 'package:mergen/domain/search/search_string.dart';
 import 'package:mergen/services/dictionary.dart';
 import 'package:mergen/services/service_locator.dart';
 
-class FoundWordsNotifier extends ValueNotifier<List<String>> {
+import 'search_state.dart';
+
+class FoundWordsNotifier extends ValueNotifier<SearchState> {
   FoundWordsNotifier() : super(initialState);
-  static const initialState = <String>[];
+  static const initialState = SearchState('', []);
 
   final dictionary = locator<DictionaryService>();
 
   Future<void> search(String prefix) async {
-    final validatedPrefix = SearchString(prefix);
-    value = await dictionary.wordsStartingWith(validatedPrefix);
+    //final validatedPrefix = SearchString(prefix);
+    final results = await dictionary.wordsStartingWith(prefix);
+    value = SearchState(prefix, results);
   }
 
 }

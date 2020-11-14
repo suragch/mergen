@@ -5,24 +5,24 @@ import 'package:mergen/domain/dictionary/pronunciation.dart';
 import 'package:mergen/domain/search/search_string.dart';
 
 abstract class DictionaryService {
-  Future<List<String>> wordsStartingWith(SearchString prefix);
-  Future<List<EnglishWord>> definitionOf(SearchString word);
+  Future<List<String>> wordsStartingWith(String prefix);
+  Future<List<EnglishWord>> definitionOf(String word);
 }
 
 class FakeDictionary implements DictionaryService {
   @override
-  Future<List<String>> wordsStartingWith(SearchString prefix) {
-    if (prefix.value.isEmpty) {
+  Future<List<String>> wordsStartingWith(String prefix) {
+    if (prefix.isEmpty) {
       return Future.value([]);
     }
     return Future.value(europeanCountries
         .where((country) =>
-            country.toLowerCase().startsWith(prefix.value.toLowerCase()))
+            country.toLowerCase().startsWith(prefix.toLowerCase()))
         .toList());
   }
 
   @override
-  Future<List<EnglishWord>> definitionOf(SearchString word) {
+  Future<List<EnglishWord>> definitionOf(String word) {
     return Future.value(
       [
         EnglishWord(

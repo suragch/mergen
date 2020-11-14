@@ -26,7 +26,6 @@ class _EnglishDefinitionState extends State<EnglishDefinition> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
       appBar: AppBar(
         title: Text(widget.word),
       ),

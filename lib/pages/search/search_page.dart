@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mergen/pages/add_word/add_word_page.dart';
 import 'package:mergen/pages/definition/english.dart';
 import 'package:mergen/pages/search/found_words_notifier.dart';
 import 'package:mergen/services/service_locator.dart';
+
+import 'search_state.dart';
 
 class SearchPage extends StatelessWidget {
   @override
@@ -62,30 +65,82 @@ class SearchResults extends StatelessWidget {
     return Expanded(
       child: ValueListenableBuilder(
         valueListenable: locator<FoundWordsNotifier>(),
-        builder: (context, value, child) => ListView.builder(
-          itemCount: value.length,
-          itemBuilder: (context, index) {
-            final word = value[index];
-            return ListTile(
-              title: Text(word),
-              onTap: () {
-                _navigateToEnglishDefinition(context, word);
-              },
-            );
-          },
-        ),
+        builder: (context, SearchState value, child) {
+          if (value.searchTerm.isEmpty) {
+            return InitialLayout();
+          }
+          if (value.searchResults.isEmpty) {
+            return InvitationToAddWord();
+          }
+          return WordList(wordList: value.searchResults);
+        },
       ),
     );
   }
+}
 
-  void _navigateToEnglishDefinition(BuildContext context, String word) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => EnglishDefinition(
-          word: word,
-        ),
+class InitialLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+    );
+  }
+}
+
+class InvitationToAddWord extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          Text(
+              'Would you mind taking the time to research this word and add it to the dictionary?'),
+          SizedBox(height: 20),
+          RaisedButton(
+            child: Text('Add word'),
+            onPressed: () {
+              _navigateToAddWord(context);
+            },
+          )
+        ],
       ),
     );
   }
+}
+
+class WordList extends StatelessWidget {
+  const WordList({Key key, this.wordList}) : super(key: key);
+  final List<String> wordList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: wordList.length,
+      itemBuilder: (context, index) {
+        final word = wordList[index];
+        return ListTile(
+          title: Text(word),
+          onTap: () {
+            _navigateToEnglishDefinition(context, word);
+          },
+        );
+      },
+    );
+  }
+}
+
+void _navigateToAddWord(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => AddWordPage()),
+  );
+}
+
+void _navigateToEnglishDefinition(BuildContext context, String word) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => EnglishDefinition(word: word)),
+  );
 }
