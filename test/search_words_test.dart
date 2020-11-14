@@ -25,6 +25,6 @@ void main() {
     expect(notifier, isNotNull);
 
     await notifier.search('a');
-    expect(notifier.value.length, greaterThan(0));
+    expect(notifier.value.searchResults.length, greaterThan(0));
   });
 }
