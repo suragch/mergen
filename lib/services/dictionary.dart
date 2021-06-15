@@ -2,11 +2,24 @@ import 'package:mergen/domain/dictionary/english_word.dart';
 import 'package:mergen/domain/dictionary/example_sentence.dart';
 import 'package:mergen/domain/dictionary/part_of_speech.dart';
 import 'package:mergen/domain/dictionary/pronunciation.dart';
-import 'package:mergen/domain/search/search_string.dart';
 
 abstract class DictionaryService {
   Future<List<String>> wordsStartingWith(String prefix);
   Future<List<EnglishWord>> definitionOf(String word);
+}
+
+class OnlineDictionary implements DictionaryService {
+  @override
+  Future<List<EnglishWord>> definitionOf(String word) {
+    // TODO: implement definitionOf
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<String>> wordsStartingWith(String prefix) {
+    // TODO: implement wordsStartingWith
+    throw UnimplementedError();
+  }
 }
 
 class FakeDictionary implements DictionaryService {
@@ -16,8 +29,8 @@ class FakeDictionary implements DictionaryService {
       return Future.value([]);
     }
     return Future.value(europeanCountries
-        .where((country) =>
-            country.toLowerCase().startsWith(prefix.toLowerCase()))
+        .where(
+            (country) => country.toLowerCase().startsWith(prefix.toLowerCase()))
         .toList());
   }
 
